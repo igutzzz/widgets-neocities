@@ -18,28 +18,17 @@ export interface LastFmTrackNowPlayingAttr {
 }
 
 export interface LastFmTrack {
+  album: LastFmMbidEntity
   artist: LastFmMbidEntity
-  streamable: string
+  date?: LastFmTrackDate
   image: LastFmImage[]
   mbid: string
-  album: LastFmMbidEntity
   name: string
+  streamable: string
   url: string
   '@attr'?: LastFmTrackNowPlayingAttr
-  date?: LastFmTrackDate
 }
 
-export interface RecentTracksAttr {
-  user: string
-  totalPages: string
-  page: string
-  perPage: string
-  total: string
-}
-
-export interface RecentTracksResponse {
-  recenttracks: {
-    track: LastFmTrack[]
-    '@attr': RecentTracksAttr
-  }
+export interface TrackResponse {
+  track: LastFmTrack
 }

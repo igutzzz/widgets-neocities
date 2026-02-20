@@ -14,7 +14,7 @@ const {
   queryFn: () => getNowPlaying(userName),
 })
 
-const track = computed(() => nowPlaying.value?.recenttracks?.track?.[0])
+const track = computed(() => nowPlaying.value?.track)
 </script>
 
 <template>
