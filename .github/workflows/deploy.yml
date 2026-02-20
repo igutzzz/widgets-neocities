@@ -38,6 +38,10 @@ jobs:
         run: npm run build
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
+          VITE_LAST_FM_API_URL: ${{ secrets.VITE_LAST_FM_API_URL }}
+          VITE_LAST_FM_USER: ${{ secrets.VITE_LAST_FM_USER }}
+          VITE_LAST_FM_API_KEY: ${{ secrets.VITE_LAST_FM_API_KEY }}
+          VITE_LAST_FM_API_SECRET: ${{ secrets.VITE_LAST_FM_API_SECRET }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
