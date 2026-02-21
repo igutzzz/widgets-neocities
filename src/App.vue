@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import NowPlaying from './components/NowPlaying.vue'
+import { RouterView } from 'vue-router'
 import './assets/styles/style.css'
 </script>
 
 <template>
-  <NowPlaying />
+  <RouterView />
 </template>
 
 <style scoped>
