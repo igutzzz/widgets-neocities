@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 
 const images = import.meta.glob<{ default: string }>(
   '/src/assets/images/*.{png,jpg,jpeg,svg,gif}',
@@ -8,6 +8,15 @@ const images = import.meta.glob<{ default: string }>(
 
 const imagePaths = computed(() => {
   return Object.values(images).map((mod) => mod.default)
+})
+onMounted(() => {
+  window.parent.postMessage(
+    {
+      title: 'images',
+      content: imagePaths.value,
+    },
+    '*',
+  )
 })
 </script>
 <template>
