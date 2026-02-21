@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed } from 'vue'
 
-const images = import.meta.glob('/src/assets/images/*.{png,jpg,jpeg,svg,gif}', { eager: true })
+const images = import.meta.glob<{ default: string }>(
+  '/src/assets/images/*.{png,jpg,jpeg,svg,gif}',
+  { eager: true },
+)
 
 const imagePaths = computed(() => {
-  return Object.keys(images)
-})
-
-onMounted(() => {
-  console.log(imagePaths)
+  return Object.values(images).map((mod) => mod.default)
 })
 </script>
 <template>
