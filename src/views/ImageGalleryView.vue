@@ -4,9 +4,7 @@ import { computed, onMounted } from 'vue'
 const images = import.meta.glob('/src/assets/images/*.{png,jpg,jpeg,svg,gif}', { eager: true })
 
 const imagePaths = computed(() => {
-  return Object.keys(images).map((path) => {
-    return path.replace('/src/assets/images/', '')
-  })
+  return Object.keys(images)
 })
 
 onMounted(() => {
@@ -14,5 +12,5 @@ onMounted(() => {
 })
 </script>
 <template>
-  <code>{{ imagePaths }}</code>
+  <img v-for="image in imagePaths" :key="image" :src="image" />
 </template>
